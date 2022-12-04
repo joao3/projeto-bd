@@ -59,7 +59,7 @@ INSERT INTO Aula VALUES(3, '2020-09-21', '70271551178', 0.7);
 
 INSERT INTO Aula VALUES(4, '2021-01-06', '01129317587', 2.0);
 INSERT INTO Aula VALUES(4, '2021-02-15', '03609113669', 1.5);
-INSERT INTO Aula VALUES(4, '2021-03-19', '66395707345', 1.6);
+INSERT INTO Aula VALUES(4, '2021-03-19', '70271551178', 1.6);
 INSERT INTO Aula VALUES(4, '2021-06-24', '66395707345', 0.8);
 INSERT INTO Aula VALUES(4, '2021-08-12', '25386829670', 1.7);
 
@@ -70,6 +70,11 @@ INSERT INTO Aula VALUES(5, '2021-03-15', '70271551178', 2.0);
 INSERT INTO Aula VALUES(5, '2021-11-17', '25386829670', 1.8);
 
 /* TABELA HISTORICO */ 
+/* TABELA CERTIFICADO */
+/* Essa tabela possui uma lógica associada citada na documentação do projeto (caraga media do histórico).
+ * Tal lógica seria tratada na aplicação, porém nessas inserções iniciais os valores
+ * foram calculados manualmente
+ */
 INSERT INTO Historico VALUES('61483982149', 1, 87.5, 8.7, 'APROVADO', 'Boa evolução nos conceitos básicos da língua inglesa');
 INSERT INTO Historico VALUES('29527295815', 3, 62, 6.8, 'REPROVADO POR FALTA', 'Poderia ter participado mais das aula');
 
@@ -87,27 +92,60 @@ INSERT INTO ResultadoProva VALUES('61483982149', 1, 2, 9);
 INSERT INTO ResultadoProva VALUES('29527295815', 3, 1, 7);
 INSERT INTO ResultadoProva VALUES('29527295815', 3, 2, 6.6);
 
+/* TABELA CERTIFICADO */
+/* Essa tabela possui uma lógica associada citada na documentação do projeto (caraga horária do certificado).
+ * Tal lógica seria tratada na aplicação, porém nessas inserções iniciais os valores
+ * foram calculados manualmente
+ */
+INSERT INTO Certificado VALUES('70271551178', '2021-08-07', 9.9);
+INSERT INTO Certificado VALUES('03609113669', '2021-11-17', 6.8);
 
+/* TABELA TRANSACAO */
+INSERT INTO Transacao VALUES('2020-05-14', 20000, 'TRANSFERENCIA', 'ENTRADA');
+INSERT INTO Transacao VALUES('2020-05-22', 15000, 'DINHEIRO', 'ENTRADA');
+INSERT INTO Transacao VALUES('2020-05-23', 35000, null, 'SALDO');
+INSERT INTO Transacao VALUES('2020-09-08', 15000, 'TRANSFERENCIA', 'SAIDA');
+INSERT INTO Transacao VALUES('2020-09-14', 15000, 'TRANSFERENCIA', 'SAIDA');
+INSERT INTO Transacao VALUES('2020-09-15', 5000, null, 'SALDO');
 
+/* TABELA COMPRA */ 
+INSERT INTO Compra VALUES('2020-09-08');
+INSERT INTO Compra VALUES('2020-09-14');
 
+/* TABELA PROCESSOSELETIVO */
+INSERT INTO ProcessoSeletivo VALUES('HV1', 2020, 'FECHADO');
+INSERT INTO ProcessoSeletivo VALUES('MT2', 2020, 'FECHADO');
+INSERT INTO ProcessoSeletivo VALUES('HV1', 2021, 'ABERTO');
+INSERT INTO ProcessoSeletivo VALUES('MT2', 2021, 'ABERTO');
 
+/* TABELA RESULTADO */
+ALTER SEQUENCE resultado_id_seq RESTART WITH 1; /* Reseta contagem do atributo do tipo Serial*/
+INSERT INTO Resultado(sigla, ano, voluntario, pontuacao, isAprovado)
+    VALUES('HV1', 2020, '70271551178', 82.5, true);
+INSERT INTO Resultado(sigla, ano, voluntario, pontuacao, isAprovado)
+    VALUES('HV1', 2020, '03609113669', 74.7, false);
+INSERT INTO Resultado(sigla, ano, voluntario, pontuacao, isAprovado)
+    VALUES('HV1', 2020, '66395707345', 70.2, false);
+INSERT INTO Resultado(sigla, ano, voluntario, pontuacao, isAprovado)
+    VALUES('HV1', 2020, '01129317587', 77.3, false);
+INSERT INTO Resultado(sigla, ano, voluntario, pontuacao, isAprovado)
+    VALUES('HV1', 2020, '25386829670', 63.8, false);
 
+INSERT INTO Resultado(sigla, ano, voluntario, pontuacao, isAprovado)
+    VALUES('MT2', 2020, '01129317587', 80.7, true);
+INSERT INTO Resultado(sigla, ano, voluntario, pontuacao, isAprovado)
+    VALUES('MT2', 2020, '03609113669', 66.0, false);
+INSERT INTO Resultado(sigla, ano, voluntario, pontuacao, isAprovado)
+    VALUES('MT2', 2020, '66395707345', 76.4, false);
+INSERT INTO Resultado(sigla, ano, voluntario, pontuacao, isAprovado)
+    VALUES('MT2', 2020, '25386829670', 71.8, false);
 
+/* TABELA INTERCAMBIO */
+INSERT INTO Intercambio VALUES('HARVARD', '0-6', 15000);
+INSERT INTO Intercambio VALUES('MIT', '0-6', 15000);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/* TABELA BOLSA */
+INSERT INTO Bolsa VALUES('2020-09-08', 'HARVARD', '0-6', 1, 'HV1', 2020);
+INSERT INTO Bolsa VALUES('2020-09-14', 'MIT', '0-6', 6, 'MT2', 2020);
 
 
