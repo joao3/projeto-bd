@@ -20,6 +20,8 @@ INSERT INTO Voluntario VALUES('03609113669', 'Sofia Souza', '1988-10-25');
 INSERT INTO Voluntario VALUES('66395707345', 'Emilly Correia', '1989-05-15');
 INSERT INTO Voluntario VALUES('01129317587', 'Maria Alice Azevedo', '1992-09-23');
 INSERT INTO Voluntario VALUES('25386829670', 'Kaique da Rosa', '1991-10-31');
+INSERT INTO Voluntario VALUES('03629113669', 'Matheus', '1985-10-25');
+
 
 /* TABELA NIVEL */
 INSERT INTO Nivel VALUES('A1', '0-6');
@@ -70,17 +72,22 @@ INSERT INTO Aula VALUES(5, '2021-03-15', '70271551178', 2.0);
 INSERT INTO Aula VALUES(5, '2021-11-17', '25386829670', 1.8);
 
 /* TABELA HISTORICO */ 
-/* TABELA CERTIFICADO */
 /* Essa tabela possui uma lógica associada citada na documentação do projeto (caraga media do histórico).
  * Tal lógica seria tratada na aplicação, porém nessas inserções iniciais os valores
  * foram calculados manualmente
  */
 INSERT INTO Historico VALUES('61483982149', 1, 87.5, 8.7, 'APROVADO', 'Boa evolução nos conceitos básicos da língua inglesa');
+INSERT INTO Historico VALUES('10979101565', 1, null, null, null, null);
+INSERT INTO Historico VALUES('11396888390', 1, null, null, null, null);
+
+
 INSERT INTO Historico VALUES('29527295815', 3, 62, 6.8, 'REPROVADO POR FALTA', 'Poderia ter participado mais das aula');
+INSERT INTO Historico VALUES('84582293239', 3, null, null, null, null);
 
 /* TABELA PROVA */
 INSERT INTO Prova VALUES(1, 1, 'Vocabulário', '2020-08-19');
 INSERT INTO Prova VALUES(1, 2, 'Redação', '2020-12-24');
+
 
 INSERT INTO Prova VALUES(3, 1, 'Gramática', '2020-08-11');
 INSERT INTO Prova VALUES(3, 2, 'Conversação', '2020-09-21');
@@ -88,9 +95,15 @@ INSERT INTO Prova VALUES(3, 2, 'Conversação', '2020-09-21');
 /* TABELA RESULTADOPROVA */
 INSERT INTO ResultadoProva VALUES('61483982149', 1, 1, 8.4);
 INSERT INTO ResultadoProva VALUES('61483982149', 1, 2, 9);
+INSERT INTO ResultadoProva VALUES('10979101565', 1, 1, 8.9);
+INSERT INTO ResultadoProva VALUES('10979101565', 1, 2, 7.7);
+INSERT INTO ResultadoProva VALUES('11396888390', 1, 1, 8.3);
+INSERT INTO ResultadoProva VALUES('11396888390', 1, 2, 7.9);
 
 INSERT INTO ResultadoProva VALUES('29527295815', 3, 1, 7);
 INSERT INTO ResultadoProva VALUES('29527295815', 3, 2, 6.6);
+INSERT INTO ResultadoProva VALUES('84582293239', 3, 1, 7.1);
+INSERT INTO ResultadoProva VALUES('84582293239', 3, 2, 7.4);
 
 /* TABELA CERTIFICADO */
 /* Essa tabela possui uma lógica associada citada na documentação do projeto (caraga horária do certificado).
