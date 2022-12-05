@@ -8,7 +8,7 @@ public class Menu {
         System.out.println("-=-=-=-=-=-=-=-=-=-=-=FUNCIONALIDADES=-=-=-=-=-=-=-=-=-=-=-");
         System.out.println("-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-");
         System.out.println("1 -> Inserir novo voluntario");
-        System.out.println("2 -> Buscar voluntários por nome");
+        System.out.println("2 -> Mostrar resultado em provas de um aluno");
         System.out.println("0 -> Sair");
         System.out.println("Digite o número referente a operação desejada.");
     }
@@ -22,6 +22,17 @@ public class Menu {
             System.out.println("Usuario inserido com succeso!");
         } catch (Exception e) {
             System.out.println("Erro ao inserir voluntário no banco de dados.\n" + e.getMessage());
+        }
+    }
+
+    private static void mostrarResultadoEmProvas(Connection conexao) {
+        // Cria objeto aluno, lê os dados do terminal e tenta fazer a inserção no banco.
+        Aluno aluno = new Aluno();
+        aluno.lerCpf();
+        try {
+            aluno.mostrarResultadoEmProvas(conexao);
+        } catch (Exception e) {
+            System.out.println("Erro ao buscar resultados em provas no banco de dados.\n" + e.getMessage());
         }
     }
 
@@ -39,13 +50,9 @@ public class Menu {
 
             switch (operacao) {
                 case 1 -> inserirVoluntario(conexao);
+                case 2 -> mostrarResultadoEmProvas(conexao);
                 case 0 -> sair = true;
                 default -> System.out.println("Operação desconhecida.");
-            }
-            try {
-                Thread.sleep(1000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
             }
         }
         in.close();
