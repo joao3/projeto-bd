@@ -16,9 +16,9 @@ public class Menu {
     private static void inserirVoluntario(Connection conexao) {
         // Cria objeto voluntário, lê os dados do terminal e tenta fazer a inserção no banco.
         Voluntario voluntario = new Voluntario();
-        voluntario.lerDoTerminal();
+        voluntario.lerDoTerminal(conexao);
         try {
-            Consultas.inserirVoluntario(conexao, voluntario);
+            Voluntario.inserirVoluntario(conexao, voluntario);
             System.out.println("Usuario inserido com succeso!");
         } catch (Exception e) {
             System.out.println("Erro ao inserir voluntário no banco de dados.\n" + e.getMessage());
