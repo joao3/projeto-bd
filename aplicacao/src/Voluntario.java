@@ -104,7 +104,6 @@ public class Voluntario {
         this.cpf = lerCpf(in, conexao);
         this.nome = lerNome(in);
         this.dataNascimento = lerDataNascimento(in);
-        in.close();
     }
 
     public static void inserirVoluntario(Connection conexao, Voluntario voluntario) throws Exception {
@@ -146,6 +145,7 @@ public class Voluntario {
         PreparedStatement st = null;
         try {
             st = conexao.prepareStatement(sql);
+
         } catch (SQLException e) {
             throw new Exception("Erro ao criar declaração no banco de dados.\n" + e.getMessage());
         }

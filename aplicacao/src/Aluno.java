@@ -74,6 +74,5 @@ public class Aluno {
       cpf = in.nextLine();
     }
     this.setCpf(cpf);
-    in.close();
   }
 }

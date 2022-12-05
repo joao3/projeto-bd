@@ -6,10 +6,10 @@ import java.util.Properties;
 public class Main {
     private static Connection criarConexao() {
         // Define parâmetros de configuração da conexão.
-        String url = "jdbc:postgresql://localhost:5432/db-2sem";
+        String url = "jdbc:postgresql://localhost:5432/projeto";
         Properties props = new Properties();
         props.setProperty("user", "postgres");
-        props.setProperty("password", "Bf7wvnjz");
+        props.setProperty("password", "postgres");
 
         // Tenta iniciar a conexão.
         Connection conexao = null;
