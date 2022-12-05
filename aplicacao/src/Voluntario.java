@@ -4,12 +4,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
-import java.time.Period;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.Scanner;
-
-import javax.xml.transform.Result;
 
 public class Voluntario {
     private String cpf;
@@ -107,6 +104,7 @@ public class Voluntario {
         this.cpf = lerCpf(in, conexao);
         this.nome = lerNome(in);
         this.dataNascimento = lerDataNascimento(in);
+        in.close();
     }
 
     public static void inserirVoluntario(Connection conexao, Voluntario voluntario) throws Exception {
