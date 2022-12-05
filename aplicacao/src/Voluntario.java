@@ -39,7 +39,7 @@ public class Voluntario {
         try {
             boolean cpfJaCadastrado = this.existeVoluntario(conexao, cpf);
             if(cpfJaCadastrado) {
-                System.out.println("CPF já cadastrado no banco de dados. Tentativa de inserção abortada.");
+                System.out.println("CPF já cadastrado no banco de dados. Tente outro CPF.");
                 return false;
             }
         } catch (Exception e) {
@@ -162,7 +162,7 @@ public class Voluntario {
         // Tenta executar a query e fechar o objeto da declaração.
         try {
             ResultSet rs = st.executeQuery();
-            return rs.next();
+            return !rs.next();
         } catch (SQLException e) {
             throw new Exception("Erro ao executar declaração no banco de dados.\n" + e.getMessage());
         } finally {
