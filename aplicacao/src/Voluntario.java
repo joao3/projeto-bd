@@ -160,7 +160,10 @@ public class Voluntario {
         // Tenta executar a query e fechar o objeto da declaração.
         try {
             ResultSet rs = st.executeQuery();
-            return !rs.next();
+            rs.next();
+            return Integer.parseInt(rs.getString(1)) >= 1;
+
+
         } catch (SQLException e) {
             throw new Exception("Erro ao executar declaração no banco de dados.\n" + e.getMessage());
         } finally {
