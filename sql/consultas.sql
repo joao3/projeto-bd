@@ -1,17 +1,3 @@
-/* Seleciona todos os voluntários e os intercãmbios em que foi aprovado. */
-SELECT
-    v.cpf,
-    v.nome,
-    i.nome_faculdade,
-    i.duracao
-FROM
-         resultado r
-    JOIN bolsa       b ON r.id = b.id_resultado
-                    AND r.isaprovado = true
-    JOIN intercambio i ON b.nome_faculdade = i.nome_faculdade
-                          AND b.duracao = i.duracao
-    RIGHT JOIN voluntario  v ON v.cpf = r.voluntario;
-
 /* Seleciona as doações de maior valor */
 SELECT
     *
@@ -27,6 +13,20 @@ WHERE
         WHERE
             tipo = 'ENTRADA'
     );
+
+/* Seleciona todos os voluntários e os intercãmbios em que foi aprovado. */
+SELECT
+    v.cpf,
+    v.nome,
+    i.nome_faculdade,
+    i.duracao
+FROM
+         resultado r
+    JOIN bolsa       b ON r.id = b.id_resultado
+                    AND r.isaprovado = true
+    JOIN intercambio i ON b.nome_faculdade = i.nome_faculdade
+                          AND b.duracao = i.duracao
+    RIGHT JOIN voluntario  v ON v.cpf = r.voluntario;
 
 /* Seleciona cpf e nome dos voluntários que deram aula para todas as turmas cadastradas (e que tiveram pelo menos uma aula dada). */
 SELECT
