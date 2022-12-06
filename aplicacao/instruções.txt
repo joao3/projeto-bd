@@ -1,0 +1,20 @@
+Os parâmetros de conexão com o banco que estão no código são:
+	- servidor rodando no localhost porta 5432
+	- banco de dados chamado "projeto"
+	- usuario: postgres
+	- senha: postgres
+
+Se precisar mudar esse parâmetros, basta modificar o código da função criarConexao(), presente no arquivo src/Main.java
+
+Para rodar:
+	java -jar aplicacao.jar
+
+Para compilar e rodar:
+
+	Windows:
+		javac .\src\*.java -d out
+		java -cp ".\postgres\postgresql-42.5.1.jar;.\out\" Main
+
+	Linux/MacOS:
+		javac ./src/*.java -d out
+		java -cp "./postgres/postgresql-42.5.1.jar:./out/" Main
